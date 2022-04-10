@@ -7,7 +7,8 @@ defmodule LivebookCLI do
 
     Available commands:
 
-      livebook server    Starts the Livebook web application
+      livebook server           Starts the Livebook web application
+      livebook export ARGS...   TODO: write description
 
     The --help and --version options can be given instead of a command for usage and versioning information.
     """
@@ -43,6 +44,7 @@ defmodule LivebookCLI do
   defp call(_args), do: IO.write(usage())
 
   defp find_task("server"), do: LivebookCLI.Server
+  defp find_task("export"), do: LivebookCLI.Export
   defp find_task(_), do: nil
 
   defp call_task(task, [arg]) when arg in ["--help", "-h"] do
